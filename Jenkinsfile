@@ -10,8 +10,9 @@ node {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-
-        app = docker.build("toyhoshi/pipelineinside")
+        docker.withServer('tcp://databox.local:2375'= {
+            app = docker.build("toyhoshi/pipelineinside")
+        }
     }
 
     stage('Test image') {
