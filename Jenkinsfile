@@ -32,7 +32,7 @@ node {
          * Pushing multiple tags is cheap, as all the layers are reused. */
         docker.withServer('tcp://databox.local:2375') {
             /* docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') { */
-            docker.withRegistry('http://databox.local:32773', 'nexus_login') {
+            docker.withRegistry('http://databox.local:32772', 'nexus_login') {
                 app.push("${env.BUILD_NUMBER}")
                 app.push("latest")
             }
